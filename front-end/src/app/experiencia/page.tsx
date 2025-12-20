@@ -18,7 +18,7 @@ export default function ExperienceAndStack() {
           </h1>
           <p className="text-slate-400 text-base max-w-2xl">
             A evolução cronológica de Técnico de Suporte a Engenheiro de
-            Software Sênior, construindo soluções de alta criticidade.
+            Software Júnior, construindo soluções de alta criticidade.
           </p>
         </div>
 
