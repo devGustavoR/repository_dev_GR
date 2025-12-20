@@ -41,4 +41,19 @@ export const PROJECTS = [
     border: "group-hover:border-blue-500/50",
     iconColor: "text-blue-500",
   },
+  {
+    id: 4,
+    title: "Zephira - Joalheria de Luxo",
+    href: "/projects/zephira",
+    category: "E-commerce & SaaS Architecture",
+    techs: ["Next.js", "NestJS", "Prisma Multi-schema", "PostgreSQL"],
+    description:
+      "Plataforma de e-commerce consultiva com arquitetura multi-tenant ready. Foco em imutabilidade de pedidos e gestão complexa de SKUs/Variantes.",
+    stats: "WIP - High Fidelity",
+    icon: "diamond",
+    color: "from-amber-500/20 to-yellow-600/5",
+    border: "group-hover:border-amber-500/50",
+    iconColor: "text-amber-500",
+    isWorkInProgress: true, // Tag para o componente renderizar o badge "Em desenvolvimento"
+  },
 ];
