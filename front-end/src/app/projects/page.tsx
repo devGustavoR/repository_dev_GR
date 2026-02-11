@@ -33,7 +33,7 @@ export default function Projects() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary ring-1 ring-inset ring-primary/20 mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
-              Portfolio 2024-2025
+              Portfolio 2024-2026
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
               Engenharia de <br />

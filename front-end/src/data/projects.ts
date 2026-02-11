@@ -56,4 +56,32 @@ export const PROJECTS = [
     iconColor: "text-amber-500",
     isWorkInProgress: true, // Tag para o componente renderizar o badge "Em desenvolvimento"
   },
+  {
+    id: 5,
+    title: "Emprega Fácil Brasil - SaaS",
+    href: "/projects/emprega-facil",
+    category: "SaaS & Automation Architecture",
+    techs: ["Next.js", "Supabase", "Make.com", "Z-API"],
+    description:
+      "Reengenharia total de um portal de empregos. Implementação de arquitetura baseada em eventos com automações de WhatsApp, QR Code para check-in de entrevistas e banco de dados corporativo blindado.",
+    stats: "Full Scalability",
+    icon: "work",
+    color: "from-blue-600/20 to-emerald-500/5",
+    border: "group-hover:border-blue-500/50",
+    iconColor: "text-blue-400",
+  },
+  {
+    id: 6,
+    title: "Allan F. - Premium Portfolio",
+    href: "/projects/allan-portfolio",
+    category: "Performance & Video UX",
+    techs: ["Next.js 14", "React", "Supabase Storage", "CDN Optimization"],
+    description:
+      "Portfolio de alta performance para editor de vídeo. Solução personalizada de delivery de vídeos pesados (>240MB) com custo zero de infraestrutura e fidelidade visual 'Pixel Perfect'.",
+    stats: "100/100 Core Web Vitals",
+    icon: "play_circle",
+    color: "from-purple-600/20 to-pink-500/5",
+    border: "group-hover:border-purple-500/50",
+    iconColor: "text-purple-400",
+  },
 ];

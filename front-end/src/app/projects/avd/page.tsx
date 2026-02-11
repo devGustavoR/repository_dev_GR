@@ -55,7 +55,9 @@ export default function AvdProject() {
               className="flex items-center justify-center gap-2 rounded-lg px-6 py-3 bg-white/5 border border-white/10 text-slate-500 text-sm font-bold cursor-help group relative"
               title="Este repositório é privado por questões de direitos autorais e diretrizes acadêmicas."
             >
-              <span className="material-symbols-outlined text-sm">lock</span>
+              <span className="material-symbols-outlined text-sm text-blue-400">
+                lock
+              </span>
               Repositório Privado
               {/* Tooltip elegante que aparece no hover */}
               <span className="absolute top-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform bg-black border border-white/10 text-[10px] text-slate-300 px-3 py-1 rounded-md whitespace-nowrap z-30">
@@ -63,12 +65,12 @@ export default function AvdProject() {
               </span>
             </div>
 
-            <Link
+            {/* <Link
               href="/projects"
               className="flex items-center justify-center gap-2 rounded-lg px-6 py-3 border border-primary/50 text-primary text-sm font-bold hover:bg-primary/10 transition-all"
             >
               Ver Outros Projetos
-            </Link>
+            </Link> */}
           </div>
         </div>
 

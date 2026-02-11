@@ -8,50 +8,101 @@ export default function ZephiraProject() {
 
       <div className="mx-auto max-w-7xl">
         {/* HERO */}
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between mb-20">
-          <div className="flex flex-col gap-4 max-w-3xl">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between mb-20">
+          {/* COLUNA ESQUERDA: IDENTIDADE E CONCEITO */}
+          <div className="flex flex-col gap-6 max-w-3xl">
+            {/* Tags de Status Premium */}
             <div className="flex items-center gap-3">
               <span className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-[10px] font-bold uppercase tracking-widest animate-pulse">
                 Active Development
               </span>
-              <span className="text-slate-500 text-sm font-mono">
+              <span className="text-slate-500 text-sm font-mono bg-white/5 px-2 py-0.5 rounded border border-white/5">
                 v0.8.4-alpha
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tighter">
-              Zephira <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-200 via-yellow-500 to-amber-700">
-                Luxe Architecture
+            {/* Título com Tipografia de Luxo */}
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-8xl font-black text-white leading-tight tracking-tighter">
+                Zephira <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-500 to-amber-700">
+                  Luxe Architecture
+                </span>
+              </h1>
+              <p className="text-xl text-slate-400 font-light leading-relaxed mt-4 max-w-2xl">
+                Uma plataforma de e-commerce consultiva para o mercado de alto
+                padrão, projetada com{" "}
+                <strong className="text-slate-200">
+                  Arquitetura Multi-schema
+                </strong>{" "}
+                e motores de imutabilidade para dados financeiros.
+              </p>
+            </div>
+
+            {/* Botões de Ação (Abaixo da descrição para fluidez) */}
+            <div className="flex flex-wrap items-center gap-4 mt-2">
+              <div
+                className="flex items-center justify-center gap-2 rounded-lg px-6 py-3 bg-white/5 border border-white/10 text-slate-500 text-sm font-bold cursor-help group relative"
+                title="Este repositório é privado por questões de direitos autorais e diretrizes de negócio."
+              >
+                <span className="material-symbols-outlined text-sm text-amber-500">
+                  lock
+                </span>
+                Repositório Privado
+                <span className="absolute top-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform bg-black border border-white/10 text-[10px] text-slate-300 px-3 py-1 rounded-md whitespace-nowrap z-30 font-sans">
+                  Acesso restrito (WIP)
+                </span>
+              </div>
+
+              <span className="text-slate-600 text-xs font-mono uppercase tracking-widest italic">
+                Internal Preview Only
               </span>
-            </h1>
-            <p className="text-xl text-slate-400 font-light max-w-2xl leading-relaxed mt-4">
-              Uma plataforma de e-commerce consultiva para o mercado de luxo,
-              projetada com arquitetura Multi-schema e imutabilidade de dados
-              financeiros.
-            </p>
+            </div>
           </div>
 
-          {/* Status Card */}
-          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-4 min-w-70">
-            <div className="flex items-center gap-2 text-white font-bold">
-              <span className="material-symbols-outlined text-amber-500">
-                architecture
+          {/* COLUNA DIREITA: SPRINT FOCUS CARD */}
+          <div className="p-8 rounded-3xl bg-gradient-to-b from-white/10 to-transparent border border-white/10 flex flex-col gap-6 min-w-[300px] backdrop-blur-md shadow-2xl relative overflow-hidden group">
+            {/* Efeito de brilho no card */}
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 blur-[60px] group-hover:bg-amber-500/20 transition-all"></div>
+
+            <div className="flex items-center gap-3 text-white font-bold">
+              <div className="p-2 rounded-lg bg-amber-500/20">
+                <span className="material-symbols-outlined text-amber-500 text-base">
+                  architecture
+                </span>
+              </div>
+              <span className="uppercase tracking-widest text-xs">
+                Foco do Sprint
               </span>
-              Foco do Sprint
             </div>
-            <ul className="text-xs space-y-3 text-slate-400">
-              <li className="flex gap-2">
-                <span className="text-amber-500">•</span> Multi-tenant database
-                layer
+
+            <ul className="space-y-5 text-sm">
+              <li className="flex gap-3 items-start group/item">
+                <span className="text-amber-500 font-black mt-0.5">•</span>
+                <span className="text-slate-400 group-hover/item:text-slate-200 transition-colors">
+                  <strong className="text-slate-200 block text-xs uppercase tracking-wider">
+                    Multi-tenant Layer
+                  </strong>
+                  Isolamento lógico de database
+                </span>
               </li>
-              <li className="flex gap-2">
-                <span className="text-amber-500">•</span> SKU Variant Logic
-                (Anéis/Pulseiras)
+              <li className="flex gap-3 items-start group/item">
+                <span className="text-amber-500 font-black mt-0.5">•</span>
+                <span className="text-slate-400 group-hover/item:text-slate-200 transition-colors">
+                  <strong className="text-slate-200 block text-xs uppercase tracking-wider">
+                    SKU Variant Logic
+                  </strong>
+                  Gestão de joias e estoques únicos
+                </span>
               </li>
-              <li className="flex gap-2">
-                <span className="text-amber-500">•</span> Order Snapshotting
-                Engine
+              <li className="flex gap-3 items-start group/item">
+                <span className="text-amber-500 font-black mt-0.5">•</span>
+                <span className="text-slate-400 group-hover/item:text-slate-200 transition-colors">
+                  <strong className="text-slate-200 block text-xs uppercase tracking-wider">
+                    Snapshot Engine
+                  </strong>
+                  Imutabilidade de preço histórico
+                </span>
               </li>
             </ul>
           </div>

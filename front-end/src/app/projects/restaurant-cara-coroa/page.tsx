@@ -17,7 +17,7 @@ export default function RestaurantProject() {
               <span>Full Stack Ecosystem</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight">
-              Digital Restaurant <br />
+              Restaurante Digital <br />
               <span className="text-primary text-2xl md:text-4xl">
                 Performance & Estabilidade
               </span>
@@ -223,9 +223,7 @@ export default function RestaurantProject() {
             <span className="material-symbols-outlined">west</span> Voltar para
             Projetos
           </Link>
-          <p className="text-xs text-slate-600 font-mono">
-            devgustavor // Full Stack Case Study
-          </p>
+          <p className="text-xs text-slate-600 font-mono">devgustavor</p>
         </div>
       </div>
     </main>
