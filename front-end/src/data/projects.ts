@@ -84,4 +84,18 @@ export const PROJECTS = [
     border: "group-hover:border-purple-500/50",
     iconColor: "text-purple-400",
   },
+  {
+    id: 7, // Ajuste o ID conforme sua sequência
+    title: "Saboorbrownie",
+    href: "/projects/saboor-brownie",
+    category: "Micro-SaaS & Serverless",
+    techs: ["Next.js", "Supabase", "Tailwind", "Recharts"],
+    description:
+      "Sistema de contabilidade e gestão de produção para microempreendimento. Controle de lotes (batches), cálculo automático de margem de lucro e dashboard mobile-first para operação em tempo real.",
+    stats: "Profit Optimized",
+    icon: "monitoring", // Ícone de gráfico/monitoramento
+    color: "from-purple-600/20 to-indigo-500/5",
+    border: "group-hover:border-purple-500/50",
+    iconColor: "text-purple-400",
+  },
 ];
