@@ -1,210 +1,175 @@
+"use client";
+
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="relative flex items-center justify-center min-h-[calc(100vh-80px)] py-20 px-6 overflow-hidden">
-      {/* Background Glows (Sutil) */}
-      <div className="absolute top-[-20%] right-[-10%] w-125 h-125 bg-primary/20 rounded-full blur-[128px] opacity-40 pointer-events-none" />
-      <div className="absolute bottom-[-20%] left-[-10%] w-125 h-125 bg-blue-600/10 rounded-full blur-[128px] opacity-40 pointer-events-none" />
+    <main className="relative flex items-center justify-center min-h-[calc(100vh-80px)] py-10 md:py-20 px-6 overflow-hidden">
+      {/* Background Decorativo - Aumentei a opacidade para dar profundidade */}
+      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
-        {/* COLUNA ESQUERDA: Texto e Apresentação */}
+      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
+        {/* COLUNA ESQUERDA: Texto */}
         <div className="lg:col-span-7 flex flex-col items-start gap-8">
-          {/* Badges Superiores */}
-          <div className="flex flex-wrap gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-slate-400">
-              <span className="material-symbols-outlined text-sm">
-                location_on
+          <div className="space-y-6">
+            <div className="flex flex-wrap gap-3">
+              <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold tracking-widest text-primary uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
+                Disponível para novos desafios
               </span>
-              Salvador, Brasil
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-slate-400">
-              <span className="material-symbols-outlined text-sm">
-                terminal
-              </span>
-              Engenheiro Backend
+
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]">
+                Gustavo <br />
+                <span className="text-white bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-emerald-400">
+                  Ribeiro
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-slate-400 font-light max-w-xl leading-relaxed">
+                Engenheiro de Software focado em{" "}
+                <span className="text-white border-b border-primary/40">
+                  infraestrutura e performance
+                </span>
+                . Especialista em NestJS e modernização de sistemas de alta
+                criticidade.
+              </p>
             </div>
           </div>
 
-          {/* Títulos */}
-          <div className="space-y-2">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-2">
-              Desenvolvedor & Otimizador
-            </h2>
-            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.1]">
-              Gustavo Ribeiro
-            </h1>
-            <p className="text-xl text-slate-400 font-light max-w-2xl leading-relaxed">
-              Engenheiro de Software focado em performance. Especialista em
-              <span className="text-white font-medium">
-                {" "}
-                NestJS, Docker e Migração de Legado
-              </span>
-              . De suporte técnico a arquitetura de alta criticidade.
-            </p>
-          </div>
-
-          {/* Lista de Destaques */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          {/* Destaques com ícones melhores */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 w-full border-l-2 border-white/5 pl-6">
             {[
-              "Especialista em NestJS & Node.js",
-              "Docker: Deploy 50% mais rápido",
-              "Setor de Saúde (Alta Criticidade)",
-              "Migração Java/Oracle Legacy",
+              { text: "Especialista NestJS & Node.js", icon: "terminal" },
+              { text: "Docker & Kubernetes Ready", icon: "layers" },
+              {
+                text: "Sistemas de Saúde (Mission Critical)",
+                icon: "health_and_safety",
+              },
+              { text: "Legacy Migration (Java/Oracle)", icon: "update" },
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 text-slate-300 text-sm font-medium"
+                className="flex items-center gap-3 text-slate-300 text-sm"
               >
-                <span className="material-symbols-outlined text-emerald-500 text-xl">
-                  star
+                <span className="material-symbols-outlined text-primary text-lg">
+                  {item.icon}
                 </span>
-                {item}
+                {item.text}
               </div>
             ))}
           </div>
 
-          {/* CTAs e Social */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-5 pt-4">
             <Link
               href="/projects"
-              className="flex items-center gap-2 px-8 py-3 bg-white text-black rounded-lg font-bold hover:bg-slate-200 transition-all"
+              className="group flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/80 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
             >
-              <span className="material-symbols-outlined text-xl">
-                folder_open
-              </span>
               Ver Projetos
+              <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
+                arrow_forward
+              </span>
             </Link>
 
-            <a
-              href={PORTFOLIO_DATA.links.linkedin}
-              target="_blank"
-              className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg font-medium hover:bg-white/10 transition-all"
-            >
-              <span className="material-symbols-outlined text-xl">link</span>
-              LinkedIn
-            </a>
-
-            <div className="flex items-center gap-4 ml-4 px-4 py-2 border-l border-white/10">
-              {/* Ícones sociais minimalistas */}
-              <span className="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer transition-colors">
-                code
-              </span>
-              <span className="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer transition-colors">
-                alternate_email
-              </span>
+            <div className="flex items-center gap-4">
+              <a
+                href={PORTFOLIO_DATA.links.linkedin}
+                target="_blank"
+                aria-label="LinkedIn"
+                className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+              >
+                <i className="devicon-linkedin-plain text-xl"></i>
+              </a>
+              <a
+                href={PORTFOLIO_DATA.links.github}
+                target="_blank"
+                aria-label="GitHub"
+                className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+              >
+                <i className="devicon-github-original text-xl"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* COLUNA DIREITA: Bento Grid */}
+        {/* COLUNA DIREITA: Bento Grid Refinado */}
         <div className="lg:col-span-5 w-full">
           <div className="grid grid-cols-2 gap-4">
-            {/* Card 1: Status (Disponível) */}
-            <div className="col-span-2 bg-obsidian border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <span className="material-symbols-outlined text-6xl">
-                  person_check
-                </span>
+            {/* Status Card */}
+            <div className="col-span-2 bg-[#121212] border border-white/5 rounded-3xl p-8 relative overflow-hidden group">
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors" />
+              <div className="relative z-10">
+                <h3 className="text-white font-bold text-xl mb-2 flex items-center gap-2">
+                  Engenheiro Backend
+                  <span className="text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded">
+                    Senior Mindset
+                  </span>
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Focado em resolver gargalos de banco de dados e automação de
+                  deploys em ambientes complexos.
+                </p>
               </div>
-              <div className="flex items-center gap-3 mb-2">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span className="text-emerald-400 font-mono text-xs uppercase tracking-wider">
-                  Disponível para Projetos
-                </span>
-              </div>
-              <p className="text-slate-300 text-sm">
-                Pronto para atuar em arquitetura de microsserviços e liderança
-                técnica.
-              </p>
             </div>
 
-            {/* Card 2: Experiência */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-center hover:bg-white/10 transition-colors">
+            {/* Exp Card */}
+            <div className="bg-white/[0.03] border border-white/5 rounded-3xl p-6 hover:bg-white/[0.05] transition-all">
               <span className="material-symbols-outlined text-3xl text-primary mb-2">
                 schedule
               </span>
-              <h3 className="text-3xl font-bold text-white">4+</h3>
-              <p className="text-xs text-slate-400 uppercase tracking-wide">
-                Anos de Exp.
+              <h3 className="text-4xl font-black text-white italic">4+</h3>
+              <p className="text-[10px] text-slate-500 uppercase tracking-[2px] mt-1">
+                Anos no Mercado
               </p>
             </div>
 
-            {/* Card 3: Otimização */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-center hover:bg-white/10 transition-colors">
-              <span className="material-symbols-outlined text-3xl text-blue-500 mb-2">
+            {/* Performance Card */}
+            <div className="bg-white/[0.03] border border-white/5 rounded-3xl p-6 hover:bg-white/[0.05] transition-all">
+              <span className="text-blue-500 font-mono text-sm mb-2 material-symbols-outlined">
                 rocket_launch
               </span>
-              <h3 className="text-3xl font-bold text-white">50%</h3>
-              <p className="text-xs text-slate-400 uppercase tracking-wide">
-                Deploys mais rápidos
+              <h3 className="text-4xl font-black text-white italic">50%</h3>
+              <p className="text-[10px] text-slate-500 uppercase tracking-[2px] mt-1">
+                Faster Deploys
               </p>
             </div>
 
-            {/* Card 4: Stack Visual (Premium & Realista) */}
-            <div className="col-span-2 bg-[#0F1115] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-primary/30 transition-all group">
-              <div className="flex justify-between items-start">
-                <p className="text-xs text-slate-500 font-mono mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  CORE_STACK.JSON
-                </p>
-                <span className="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors">
-                  terminal
+            {/* Tech Stack Horizontal */}
+            <div className="col-span-2 bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 rounded-3xl p-6">
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+                  Main Stack
                 </span>
+                <div className="flex gap-1">
+                  <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                  <div className="w-2 h-2 rounded-full bg-amber-500/50"></div>
+                  <div className="w-2 h-2 rounded-full bg-emerald-500/50"></div>
+                </div>
               </div>
 
-              <div className="flex justify-between items-end">
-                <div className="flex -space-x-3 hover:space-x-1 transition-all duration-300">
-                  {/* NestJS */}
-                  <div
-                    className="w-12 h-12 rounded-full bg-[#1c1c1c] border-2 border-[#0F1115] flex items-center justify-center hover:scale-110 hover:z-10 transition-transform relative z-0"
-                    title="NestJS"
-                  >
-                    <i className="devicon-nestjs-original text-2xl text-[#E0234E]"></i>
-                  </div>
-
-                  {/* TypeScript */}
-                  <div
-                    className="w-12 h-12 rounded-full bg-[#1c1c1c] border-2 border-[#0F1115] flex items-center justify-center hover:scale-110 hover:z-10 transition-transform relative z-0"
-                    title="TypeScript"
-                  >
-                    <i className="devicon-typescript-plain text-2xl text-[#3178C6]"></i>
-                  </div>
-
-                  {/* Docker */}
-                  <div
-                    className="w-12 h-12 rounded-full bg-[#1c1c1c] border-2 border-[#0F1115] flex items-center justify-center hover:scale-110 hover:z-10 transition-transform relative z-0"
-                    title="Docker"
-                  >
-                    <i className="devicon-docker-plain text-2xl text-[#2496ED]"></i>
-                  </div>
-
-                  {/* PostgreSQL */}
-                  <div
-                    className="w-12 h-12 rounded-full bg-[#1c1c1c] border-2 border-[#0F1115] flex items-center justify-center hover:scale-110 hover:z-10 transition-transform relative z-0"
-                    title="PostgreSQL"
-                  >
-                    <i className="devicon-postgresql-plain text-2xl text-[#336791]"></i>
-                  </div>
-
-                  {/* Java (Legado/Extra) */}
-                  <div
-                    className="w-12 h-12 rounded-full bg-[#1c1c1c] border-2 border-[#0F1115] flex items-center justify-center hover:scale-110 hover:z-10 transition-transform relative z-0"
-                    title="Java"
-                  >
-                    <i className="devicon-java-plain text-2xl text-orange-500"></i>
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <span className="material-symbols-outlined text-slate-600 group-hover:translate-x-1 transition-transform">
-                    arrow_forward
-                  </span>
-                </div>
+              <div className="flex justify-around items-center">
+                <i
+                  className="devicon-nestjs-original text-3xl text-slate-500 hover:text-[#E0234E] transition-colors cursor-help"
+                  title="NestJS"
+                ></i>
+                <i
+                  className="devicon-typescript-plain text-3xl text-slate-500 hover:text-[#3178C6] transition-colors cursor-help"
+                  title="TypeScript"
+                ></i>
+                <i
+                  className="devicon-docker-plain text-3xl text-slate-500 hover:text-[#2496ED] transition-colors cursor-help"
+                  title="Docker"
+                ></i>
+                <i
+                  className="devicon-postgresql-plain text-3xl text-slate-500 hover:text-[#336791] transition-colors cursor-help"
+                  title="PostgreSQL"
+                ></i>
+                <i
+                  className="devicon-java-plain text-3xl text-slate-500 hover:text-orange-500 transition-colors cursor-help"
+                  title="Java"
+                ></i>
               </div>
             </div>
           </div>
