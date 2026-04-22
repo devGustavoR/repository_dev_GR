@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Projetos", href: "/projects" },
   { label: "Experiência", href: "/experiencia" },
+  { label: "Serviços", href: "/servicos" }, // Novo item
 ];
 
 export const Header = () => {
@@ -28,7 +29,6 @@ export const Header = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
-  // Ícone SVG do LinkedIn para reutilização
   const LinkedInIcon = ({ className }: { className?: string }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -63,36 +63,45 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-all relative group ${
-                  pathname === item.href
-                    ? "text-primary"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                {item.label}
-                {pathname === item.href && (
-                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 size-1 bg-primary rounded-full shadow-[0_0_8px_rgba(var(--primary-rgb),0.8)]" />
-                )}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-8 border-r border-white/10 pr-8">
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-all relative group ${
+                    pathname === item.href
+                      ? "text-primary"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                  {pathname === item.href && (
+                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 size-1 bg-primary rounded-full shadow-[0_0_8px_rgba(var(--primary-rgb),0.8)]" />
+                  )}
+                </Link>
+              ))}
+            </div>
 
-            {/* LinkedIn Desktop com Mudança de Cor */}
-            <a
-              href={PORTFOLIO_DATA.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-300 hover:bg-white/10 hover:border-white/20 transition-all active:scale-95"
-            >
-              <LinkedInIcon className="size-3.5 transition-colors duration-300 group-hover:text-[#0a66c2]" />
-              <span className="transition-colors duration-300 group-hover:text-white">
-                LinkedIn
-              </span>
-            </a>
+            {/* Links de Ação */}
+            <div className="flex items-center gap-4">
+              <a
+                href={PORTFOLIO_DATA.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-2 text-slate-400 hover:text-[#0a66c2] transition-colors"
+                title="LinkedIn"
+              >
+                <LinkedInIcon className="size-5" />
+              </a>
+
+              <Link
+                href="/servicos#orcamento"
+                className="px-5 py-2.5 bg-primary text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-primary/80 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+              >
+                Orçamento
+              </Link>
+            </div>
           </nav>
 
           {/* Mobile Toggle */}
@@ -122,14 +131,14 @@ export const Header = () => {
           </button>
         </div>
 
-        <nav className="flex flex-col items-center justify-center h-[70vh] gap-10">
+        <nav className="flex flex-col items-center justify-center h-[70vh] gap-8">
           {NAV_ITEMS.map((item, index) => (
             <Link
               key={item.label}
               href={item.href}
               onClick={closeMenu}
               style={{ transitionDelay: `${index * 100}ms` }}
-              className={`text-5xl font-black tracking-tighter transition-all ${
+              className={`text-4xl font-black tracking-tighter transition-all ${
                 isMenuOpen
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
@@ -139,31 +148,28 @@ export const Header = () => {
             </Link>
           ))}
 
-          <div
-            className={`w-12 h-px bg-white/10 transition-all delay-500 ${isMenuOpen ? "scale-100" : "scale-0"}`}
-          />
+          <div className="h-px w-12 bg-white/10 my-4" />
 
-          {/* LinkedIn Mobile com Mudança de Cor */}
+          {/* Botão de Orçamento no Mobile */}
+          <Link
+            href="/servicos#orcamento"
+            onClick={closeMenu}
+            className="px-10 py-4 bg-primary text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-primary/20"
+          >
+            Solicitar Orçamento
+          </Link>
+
           <a
             href={PORTFOLIO_DATA.links.linkedin}
             target="_blank"
-            rel="noopener noreferrer"
-            className={`group flex items-center gap-3 text-slate-400 text-lg transition-all duration-500 delay-500 ${
-              isMenuOpen
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
-            }`}
+            className="group flex items-center gap-3 text-slate-400 text-sm mt-4"
           >
-            <LinkedInIcon className="size-6 transition-colors duration-300 group-hover:text-[#0a66c2]" />
-            <span className="font-bold tracking-widest uppercase text-xs transition-colors duration-300 group-hover:text-white">
+            <LinkedInIcon className="size-5 group-hover:text-[#0a66c2] transition-colors" />
+            <span className="group-hover:text-white transition-colors">
               LinkedIn
             </span>
           </a>
         </nav>
-
-        <div className="absolute bottom-10 left-0 w-full text-center text-slate-700 font-mono text-[10px] tracking-[0.5em] uppercase">
-          Gustavo Ribeiro // {new Date().getFullYear()}
-        </div>
       </div>
 
       <div className="h-20 md:h-24" aria-hidden />
