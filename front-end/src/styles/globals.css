@@ -30,10 +30,10 @@
   --color-slate-mist: var(--slate-mist);
   --color-obsidian: #050505;
 
-  /* Fontes (Assumindo que você configurou a Jakarta no layout) */
-  --font-display: var(--font-jakarta), var(--font-geist-sans), sans-serif;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Fontes */
+  --font-display: var(--font-jakarta), sans-serif;
+  --font-sans: var(--font-jakarta), sans-serif;
+  --font-mono: var(--font-mono), monospace;
 
   /* Background Images */
   --background-image-hero-glow: var(--hero-glow);

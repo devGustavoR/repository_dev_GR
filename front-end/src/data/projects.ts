@@ -1,4 +1,19 @@
-export const PROJECTS = [
+interface Project {
+  id: number;
+  title: string;
+  href: string;
+  category: string;
+  techs: string[];
+  description: string;
+  stats: string;
+  icon: string;
+  color: string;
+  border: string;
+  iconColor: string;
+  isWorkInProgress?: boolean;
+}
+
+export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Emprega Fácil Brasil - SaaS",
@@ -140,18 +155,4 @@ export const PROJECTS = [
     border: "group-hover:border-purple-500/50",
     iconColor: "text-purple-400",
   },
-  // {
-  //   id: 11, // Ajuste o ID
-  //   title: "Wallison Portfolio",
-  //   href: "/projects/wallison-portfolio",
-  //   category: "Performance & Personal Branding",
-  //   techs: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-  //   description:
-  //     "A interseção entre Consultoria de RH Estratégico e Engenharia de Software. Um showcase interativo construído do zero com arquitetura Bento Grid, Dark Mode nativo e animações fluidas.",
-  //   stats: "100/100 Lighthouse",
-  //   icon: "code", // Ícone de código
-  //   color: "from-emerald-600/20 to-teal-500/5",
-  //   border: "group-hover:border-emerald-500/50",
-  //   iconColor: "text-emerald-400",
-  // },
 ];

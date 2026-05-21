@@ -1,7 +1,12 @@
-"use client";
-
 import { PORTFOLIO_DATA } from "@/data/portfolio";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Portfólio de Gustavo Ribeiro, Engenheiro Backend especializado em NestJS, Docker e modernização de sistemas de alta criticidade.",
+};
 
 export default function Home() {
   return (
@@ -77,6 +82,7 @@ export default function Home() {
               <a
                 href={PORTFOLIO_DATA.links.linkedin}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
               >
@@ -85,6 +91,7 @@ export default function Home() {
               <a
                 href={PORTFOLIO_DATA.links.github}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
                 className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
               >

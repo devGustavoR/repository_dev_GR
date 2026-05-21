@@ -12,6 +12,8 @@ export const PORTFOLIO_DATA = {
     linkedin: "https://www.linkedin.com/in/devgustavor",
     email: "mailto:devgustavor@gmail.com",
     github: "https://github.com/devGustavoR",
+    whatsapp:
+      "https://wa.me/557183831225?text=Oi%2CGustavo!%20Vi%20seu%20portfolio%20e%20quero%20falar%20sobre%20um%20projeto.",
   },
   stack: [
     { icon: "dns", color: "text-[#E0234E]", title: "NestJS & Node" },

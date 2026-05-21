@@ -37,6 +37,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>",
   },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://www.devgustavor.com.br",
+    siteName: "Gustavo Ribeiro",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function RootLayout({
@@ -58,7 +65,9 @@ export default function RootLayout({
         {/* 2. Devicon (Para os logos do NestJS, Docker, etc.) */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+          integrity="sha384-DjehTlU5SubGD1zUGe78SkwLgw+q2y9DXnmy3EaDbXA9nvFMPW3LP5verNrWr9rW"
+          crossOrigin="anonymous"
         />
 
         {/* ----------------------------- */}

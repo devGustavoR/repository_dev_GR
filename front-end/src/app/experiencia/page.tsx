@@ -1,4 +1,10 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experiência",
+  description:
+    "Trajetória profissional de Gustavo Ribeiro: de Técnico de Suporte a Engenheiro de Software, com foco em backend, DevOps e modernização de sistemas legados.",
+};
 
 export default function ExperienceAndStack() {
   return (

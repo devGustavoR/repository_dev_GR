@@ -1,5 +1,3 @@
-"use client";
-
 const REVIEWS = [
   {
     project: "Bot de Telegram para Locadora",
@@ -58,9 +56,9 @@ export const Testimonials = () => (
 
     {/* Grid ajustado para suportar mais itens de forma harmônica */}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {REVIEWS.map((t, i) => (
+      {REVIEWS.map((t) => (
         <div
-          key={i}
+          key={t.project}
           className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-between hover:border-primary/20 transition-all hover:-translate-y-1 duration-300"
         >
           <div>

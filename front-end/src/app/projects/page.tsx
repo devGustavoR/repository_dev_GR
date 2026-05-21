@@ -16,27 +16,27 @@ const CATEGORIES = [
 
 const PROJECTS_PER_PAGE = 6;
 
+const FILTER_MAP: Record<string, (cat: string) => boolean> = {
+  Todos: () => true,
+  SaaS: (cat) => cat.includes("SaaS"),
+  "Full Stack": (cat) => cat.includes("Full Stack"),
+  "IA & Segurança": (cat) =>
+    cat.includes("IA") ||
+    cat.includes("Segurança") ||
+    cat.includes("Security") ||
+    cat.includes("AI"),
+  "E-commerce": (cat) => cat.includes("E-commerce"),
+  "UX & Performance": (cat) =>
+    cat.includes("Performance") || cat.includes("UX"),
+};
+
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Lógica de Filtragem Inteligente
   const filteredProjects = useMemo(() => {
-    return PROJECTS.filter((project) => {
-      if (activeFilter === "Todos") return true;
-
-      const categoryMatch = project.category
-        .toLowerCase()
-        .includes(activeFilter.toLowerCase().split(" ")[0]);
-      // Se você clicar em "IA & Segurança", ele vai procurar por "IA" ou "Segurança" nos dados
-      const keywordMatch = activeFilter
-        .split(" & ")
-        .some((word) =>
-          project.category.toLowerCase().includes(word.toLowerCase()),
-        );
-
-      return categoryMatch || keywordMatch;
-    });
+    const match = FILTER_MAP[activeFilter] ?? (() => true);
+    return PROJECTS.filter((project) => match(project.category));
   }, [activeFilter]);
 
   // Paginação
@@ -99,7 +99,7 @@ export default function Projects() {
                       </div>
                     )}
 
-                  <span className="material-symbols-outlined text-6xl opacity-80 group-hover:scale-110 transition-transform duration-500 {project.iconColor}">
+                  <span className={`material-symbols-outlined text-6xl opacity-80 group-hover:scale-110 transition-transform duration-500 ${project.iconColor}`}>
                     {project.icon}
                   </span>
                 </div>
