@@ -1,5 +1,6 @@
 "use client";
 
+import { ScrollReveal } from "@/components/common/ScrollReveal";
 import { ContactCTA } from "./_components/ContactCTA";
 import { FAQ } from "./_components/FAQ";
 import { Hero } from "./_components/Hero";
@@ -15,11 +16,21 @@ export default function ServicesPage() {
 
       <div className="mx-auto max-w-7xl px-6">
         <Hero />
-        <ServiceGrid />
-        <Testimonials />
-        <Process />
-        <FAQ />
-        <ContactCTA />
+        <ScrollReveal>
+          <ServiceGrid />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Testimonials />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Process />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FAQ />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ContactCTA />
+        </ScrollReveal>
       </div>
     </main>
   );

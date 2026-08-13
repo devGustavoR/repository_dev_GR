@@ -1,5 +1,6 @@
 "use client";
 
+import { ScrollReveal } from "@/components/common/ScrollReveal";
 import { PROJECTS } from "@/data/projects";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -81,7 +82,12 @@ export default function Projects() {
         </div>
 
         {/* Grid de Projetos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[450px]">
+        <ScrollReveal
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[450px]"
+          deps={[activeFilter, currentPage]}
+          y={30}
+          stagger={0.08}
+        >
           {paginatedProjects.map((project) => (
             <Link key={project.id} href={project.href} className="group block">
               <article
@@ -150,7 +156,7 @@ export default function Projects() {
               </article>
             </Link>
           ))}
-        </div>
+        </ScrollReveal>
 
         {/* Paginação */}
         {totalPages > 1 && (

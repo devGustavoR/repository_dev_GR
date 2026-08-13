@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/common/ScrollReveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -146,10 +147,16 @@ export default function ExperienceAndStack() {
           </div>
 
           {/* COLUNA DIREITA: TIMELINE */}
-          <div className="lg:col-span-8 flex flex-col gap-12 relative animate-in fade-in slide-in-from-right-4 duration-1000">
+          <div className="lg:col-span-8 relative">
             {/* Linha vertical conectora */}
             <div className="absolute left-6.5 md:left-7.5 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-blue-500/30 to-transparent"></div>
 
+            <ScrollReveal
+              className="flex flex-col gap-12 relative"
+              y={50}
+              stagger={0.15}
+              start="top 90%"
+            >
             {/* 1. Desenvolvedor Júnior (Atual) */}
             <div className="relative pl-16 md:pl-20 group">
               <div className="absolute left-4 md:left-5 top-0 z-10">
@@ -280,6 +287,7 @@ export default function ExperienceAndStack() {
                 </p>
               </div>
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

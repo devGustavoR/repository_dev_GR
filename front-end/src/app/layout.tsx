@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
@@ -76,11 +77,13 @@ export default function RootLayout({
       <body
         className={`${jakarta.variable} ${jetbrainsMono.variable} font-sans bg-obsidian text-slate-300 antialiased selection:bg-primary/30 selection:text-white`}
       >
-        <Header />
+        <SmoothScroll>
+          <Header />
 
-        {children}
+          {children}
 
-        <Footer />
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import { HeroContent } from "@/components/home/HeroContent";
+import { HeroCanvas } from "@/components/three/HeroCanvas";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,8 +16,9 @@ export default function Home() {
       {/* Background Decorativo - Aumentei a opacidade para dar profundidade */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <HeroCanvas />
 
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
+      <HeroContent className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
         {/* COLUNA ESQUERDA: Texto */}
         <div className="lg:col-span-7 flex flex-col items-start gap-8">
           <div className="space-y-6">
@@ -181,7 +184,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </HeroContent>
     </main>
   );
 }
