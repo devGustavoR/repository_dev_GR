@@ -1,4 +1,6 @@
+import { AmbientGlow } from "@/components/common/AmbientGlow";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
+import { SelfDrawLine } from "@/components/common/SelfDrawLine";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +13,10 @@ export default function ExperienceAndStack() {
   return (
     <main className="relative min-h-screen py-20 px-6 overflow-hidden">
       {/* Background Decorativo */}
-      <div className="absolute top-0 right-0 -z-10 h-125 w-125 rounded-full bg-primary/5 blur-[120px]"></div>
-      <div className="absolute bottom-0 left-0 -z-10 h-125 w-125 rounded-full bg-blue-500/5 blur-[120px]"></div>
+      <AmbientGlow>
+        <div className="absolute top-0 right-0 -z-10 h-125 w-125 rounded-full bg-primary/5 blur-[120px]"></div>
+        <div className="absolute bottom-0 left-0 -z-10 h-125 w-125 rounded-full bg-blue-500/5 blur-[120px]"></div>
+      </AmbientGlow>
 
       <div className="mx-auto max-w-7xl">
         {/* Header da Página */}
@@ -148,8 +152,8 @@ export default function ExperienceAndStack() {
 
           {/* COLUNA DIREITA: TIMELINE */}
           <div className="lg:col-span-8 relative">
-            {/* Linha vertical conectora */}
-            <div className="absolute left-6.5 md:left-7.5 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-blue-500/30 to-transparent"></div>
+            {/* Linha vertical conectora - se desenha ao rolar */}
+            <SelfDrawLine className="absolute left-6.5 md:left-7.5 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-blue-500/30 to-transparent" />
 
             <ScrollReveal
               className="flex flex-col gap-12 relative"

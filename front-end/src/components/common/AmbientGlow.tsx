@@ -1,9 +1,13 @@
 "use client";
 
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import { useEffect, useRef } from "react";
 
-export function HeroContent({
+/**
+ * Anima cada filho direto (ex: blobs de blur decorativos) com um flutuar
+ * lento e contínuo, dando profundidade ao fundo sem chamar atenção.
+ */
+export function AmbientGlow({
   children,
   className,
 }: {
@@ -18,17 +22,17 @@ export function HeroContent({
 
     const targets = Array.from(container.children);
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        targets,
-        { autoAlpha: 0, y: 32 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          stagger: 0.12,
-        },
-      );
+      targets.forEach((target, index) => {
+        gsap.to(target, {
+          x: index % 2 === 0 ? 30 : -30,
+          y: index % 2 === 0 ? -20 : 20,
+          scale: 1.08,
+          duration: 8 + index * 2,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      });
     }, container);
 
     return () => ctx.revert();

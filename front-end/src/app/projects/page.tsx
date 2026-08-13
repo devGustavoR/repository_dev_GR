@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/common/ScrollReveal";
+import { TiltCard } from "@/components/common/TiltCard";
 import { PROJECTS } from "@/data/projects";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -89,7 +90,8 @@ export default function Projects() {
           stagger={0.08}
         >
           {paginatedProjects.map((project) => (
-            <Link key={project.id} href={project.href} className="group block">
+            <TiltCard key={project.id}>
+            <Link href={project.href} className="group block">
               <article
                 className={`relative flex flex-col h-full rounded-2xl bg-[#1a1010]/80 border border-white/5 transition-all duration-500 hover:-translate-y-2 ${project.border}`}
               >
@@ -155,6 +157,7 @@ export default function Projects() {
                 </div>
               </article>
             </Link>
+            </TiltCard>
           ))}
         </ScrollReveal>
 

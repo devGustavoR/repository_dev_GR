@@ -1,5 +1,6 @@
-import { HeroContent } from "@/components/home/HeroContent";
-import { HeroCanvas } from "@/components/three/HeroCanvas";
+import { AmbientGlow } from "@/components/common/AmbientGlow";
+import { AnimatedHeading } from "@/components/common/AnimatedHeading";
+import { MagneticButton } from "@/components/common/MagneticButton";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,11 +15,12 @@ export default function Home() {
   return (
     <main className="relative flex items-center justify-center min-h-[calc(100vh-80px)] py-10 md:py-20 px-6 overflow-hidden">
       {/* Background Decorativo - Aumentei a opacidade para dar profundidade */}
-      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <HeroCanvas />
+      <AmbientGlow>
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      </AmbientGlow>
 
-      <HeroContent className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
+      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
         {/* COLUNA ESQUERDA: Texto */}
         <div className="lg:col-span-7 flex flex-col items-start gap-8">
           <div className="space-y-6">
@@ -30,12 +32,12 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]">
+              <AnimatedHeading className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]">
                 Gustavo <br />
                 <span className="text-white bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-emerald-400">
                   Ribeiro
                 </span>
-              </h1>
+              </AnimatedHeading>
               <p className="text-lg md:text-xl text-slate-400 font-light max-w-xl leading-relaxed">
                 Engenheiro de Software focado em{" "}
                 <span className="text-white border-b border-primary/40">
@@ -71,35 +73,41 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap items-center gap-5 pt-4">
-            <Link
-              href="/projects"
-              className="group flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/80 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
-            >
-              Ver Projetos
-              <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
-                arrow_forward
-              </span>
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/projects"
+                className="group flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/80 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+              >
+                Ver Projetos
+                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
+                  arrow_forward
+                </span>
+              </Link>
+            </MagneticButton>
 
             <div className="flex items-center gap-4">
-              <a
-                href={PORTFOLIO_DATA.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <i className="devicon-linkedin-plain text-xl"></i>
-              </a>
-              <a
-                href={PORTFOLIO_DATA.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <i className="devicon-github-original text-xl"></i>
-              </a>
+              <MagneticButton strength={0.5}>
+                <a
+                  href={PORTFOLIO_DATA.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all block"
+                >
+                  <i className="devicon-linkedin-plain text-xl"></i>
+                </a>
+              </MagneticButton>
+              <MagneticButton strength={0.5}>
+                <a
+                  href={PORTFOLIO_DATA.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all block"
+                >
+                  <i className="devicon-github-original text-xl"></i>
+                </a>
+              </MagneticButton>
             </div>
           </div>
         </div>
@@ -184,7 +192,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </HeroContent>
+      </div>
     </main>
   );
 }
