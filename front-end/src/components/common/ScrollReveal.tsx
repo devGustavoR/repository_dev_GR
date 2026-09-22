@@ -1,6 +1,6 @@
 "use client";
 
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsapScroll";
 import { useEffect, useRef } from "react";
 
 interface ScrollRevealProps {

@@ -1,3 +1,4 @@
+import { DeferredStylesheet } from "@/components/layout/DeferredStylesheet";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -57,18 +58,16 @@ export default function RootLayout({
     <html lang="pt-BR" className="scroll-smooth">
       <head>
         {/* Material Symbols - subset com apenas os ícones usados no site,
-            evitando baixar a fonte inteira (~7MB -> ~80KB). Ver src/lib/icons.ts */}
-        <link
-          rel="preload"
-          href={MATERIAL_SYMBOLS_URL}
-          as="style"
-        />
-        <link rel="stylesheet" href={MATERIAL_SYMBOLS_URL} />
+            evitando baixar a fonte inteira (~7MB -> ~80KB). Ver src/lib/icons.ts.
+            O <link rel=stylesheet> real é injetado após a hidratação por
+            DeferredStylesheet, pra não bloquear a renderização inicial. */}
+        <link rel="preload" href={MATERIAL_SYMBOLS_URL} as="style" />
       </head>
 
       <body
         className={`${jakarta.variable} ${jetbrainsMono.variable} font-sans bg-obsidian text-slate-300 antialiased selection:bg-primary/30 selection:text-white`}
       >
+        <DeferredStylesheet href={MATERIAL_SYMBOLS_URL} />
         <SmoothScroll>
           <Header />
 

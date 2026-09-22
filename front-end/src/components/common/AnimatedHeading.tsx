@@ -1,11 +1,14 @@
 "use client";
 
-import { gsap, SplitText } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { useEffect, useRef } from "react";
 
 /**
  * Título com reveal por caractere ao montar, dando impacto tipográfico
  * ao primeiro contato sem depender de elementos 3D.
+ *
+ * O SplitText é carregado sob demanda (import dinâmico) porque é o maior
+ * plugin do GSAP e só esse componente precisa dele.
  */
 export function AnimatedHeading({
   children,
@@ -20,24 +23,36 @@ export function AnimatedHeading({
     const el = ref.current;
     if (!el) return;
 
-    const split = new SplitText(el, { type: "chars" });
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        split.chars,
-        { yPercent: 110, opacity: 0 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out",
-          stagger: 0.02,
-        },
-      );
+    let split: InstanceType<
+      typeof import("gsap/SplitText").SplitText
+    > | null = null;
+    let ctx: gsap.Context | null = null;
+    let cancelled = false;
+
+    import("gsap/SplitText").then(({ SplitText }) => {
+      if (cancelled || !el) return;
+
+      gsap.registerPlugin(SplitText);
+      split = new SplitText(el, { type: "chars" });
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          split!.chars,
+          { yPercent: 110, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.02,
+          },
+        );
+      });
     });
 
     return () => {
-      ctx.revert();
-      split.revert();
+      cancelled = true;
+      ctx?.revert();
+      split?.revert();
     };
   }, []);
 

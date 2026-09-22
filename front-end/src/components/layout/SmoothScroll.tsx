@@ -9,7 +9,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     // Carrega GSAP/Lenis sob demanda, fora do bundle principal do layout
     // (que roda em toda página), reduzindo JS baixado antes de ser usado.
-    Promise.all([import("@/lib/gsap"), import("lenis")]).then(
+    Promise.all([import("@/lib/gsapScroll"), import("lenis")]).then(
       ([{ gsap, ScrollTrigger }, { default: Lenis }]) => {
         if (cancelled) return;
 
