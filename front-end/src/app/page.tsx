@@ -1,8 +1,10 @@
 import { AmbientGlow } from "@/components/common/AmbientGlow";
 import { AnimatedHeading } from "@/components/common/AnimatedHeading";
+import { GitHubIcon, LinkedInIcon } from "@/components/common/BrandIcons";
 import { MagneticButton } from "@/components/common/MagneticButton";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -94,7 +96,7 @@ export default function Home() {
                   aria-label="LinkedIn"
                   className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all block"
                 >
-                  <i className="devicon-linkedin-plain text-xl"></i>
+                  <LinkedInIcon className="size-5" />
                 </a>
               </MagneticButton>
               <MagneticButton strength={0.5}>
@@ -105,7 +107,7 @@ export default function Home() {
                   aria-label="GitHub"
                   className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all block"
                 >
-                  <i className="devicon-github-original text-xl"></i>
+                  <GitHubIcon className="size-5" />
                 </a>
               </MagneticButton>
             </div>
@@ -168,26 +170,24 @@ export default function Home() {
               </div>
 
               <div className="flex justify-around items-center">
-                <i
-                  className="devicon-nestjs-original text-3xl text-slate-500 hover:text-[#E0234E] transition-colors cursor-help"
-                  title="NestJS"
-                ></i>
-                <i
-                  className="devicon-typescript-plain text-3xl text-slate-500 hover:text-[#3178C6] transition-colors cursor-help"
-                  title="TypeScript"
-                ></i>
-                <i
-                  className="devicon-docker-plain text-3xl text-slate-500 hover:text-[#2496ED] transition-colors cursor-help"
-                  title="Docker"
-                ></i>
-                <i
-                  className="devicon-postgresql-plain text-3xl text-slate-500 hover:text-[#336791] transition-colors cursor-help"
-                  title="PostgreSQL"
-                ></i>
-                <i
-                  className="devicon-java-plain text-3xl text-slate-500 hover:text-orange-500 transition-colors cursor-help"
-                  title="Java"
-                ></i>
+                {[
+                  { src: "/icons/nestjs-original.svg", alt: "NestJS" },
+                  { src: "/icons/typescript-plain.svg", alt: "TypeScript" },
+                  { src: "/icons/docker-plain.svg", alt: "Docker" },
+                  { src: "/icons/postgresql-plain.svg", alt: "PostgreSQL" },
+                  { src: "/icons/java-plain.svg", alt: "Java" },
+                ].map((tech) => (
+                  <Image
+                    key={tech.alt}
+                    src={tech.src}
+                    alt={tech.alt}
+                    title={tech.alt}
+                    width={32}
+                    height={32}
+                    unoptimized
+                    className="size-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all cursor-help"
+                  />
+                ))}
               </div>
             </div>
           </div>

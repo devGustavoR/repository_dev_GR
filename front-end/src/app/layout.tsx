@@ -1,6 +1,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { MATERIAL_SYMBOLS_URL } from "@/lib/icons";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
@@ -55,23 +56,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <head>
-        {/* --- CORREÇÃO CRÍTICA AQUI --- */}
-
-        {/* 1. Material Symbols (Link Completo e Válido) */}
+        {/* Material Symbols - subset com apenas os ícones usados no site,
+            evitando baixar a fonte inteira (~7MB -> ~80KB). Ver src/lib/icons.ts */}
         <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+          rel="preload"
+          href={MATERIAL_SYMBOLS_URL}
+          as="style"
         />
-
-        {/* 2. Devicon (Para os logos do NestJS, Docker, etc.) */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
-          integrity="sha384-DjehTlU5SubGD1zUGe78SkwLgw+q2y9DXnmy3EaDbXA9nvFMPW3LP5verNrWr9rW"
-          crossOrigin="anonymous"
-        />
-
-        {/* ----------------------------- */}
+        <link rel="stylesheet" href={MATERIAL_SYMBOLS_URL} />
       </head>
 
       <body
