@@ -9,7 +9,8 @@ import { useEffect } from "react";
  */
 export function DeferredStylesheet({ href }: { href: string }) {
   useEffect(() => {
-    if (document.querySelector(`link[href="${href}"]`)) return;
+    if (document.querySelector(`link[rel="stylesheet"][href="${href}"]`))
+      return;
 
     const link = document.createElement("link");
     link.rel = "stylesheet";
