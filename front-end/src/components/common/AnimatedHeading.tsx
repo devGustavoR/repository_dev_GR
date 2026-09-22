@@ -35,12 +35,14 @@ export function AnimatedHeading({
       gsap.registerPlugin(SplitText);
       split = new SplitText(el, { type: "chars" });
       ctx = gsap.context(() => {
+        // Anima só a posição (sem opacity) para não atrasar o LCP: o
+        // navegador já pinta o texto totalmente opaco no primeiro frame,
+        // só deslizando para a posição final.
         gsap.fromTo(
           split!.chars,
-          { yPercent: 110, opacity: 0 },
+          { yPercent: 110 },
           {
             yPercent: 0,
-            opacity: 1,
             duration: 0.8,
             ease: "power3.out",
             stagger: 0.02,
